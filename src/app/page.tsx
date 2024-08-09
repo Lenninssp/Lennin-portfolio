@@ -18,7 +18,7 @@ interface MenuItem {
 }
 
 export default function Home() {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
@@ -37,14 +37,14 @@ export default function Home() {
       : "bg-gray-800 border border-gray-700";
 
   const technologies: Technology[] = [
-    { name: "React JS", icon: "ri:reactjs-fill", color: "text-blue-300" },
-    { name: "TypeScript", icon: "bxl:typescript", color: "text-blue-300" },
+    { name: !isMobile ? "React JS" : "Re..", icon: "ri:reactjs-fill", color: "text-blue-300" },
+    { name: !isMobile ? "TypeScript" : "Ty..", icon: "bxl:typescript", color: "text-blue-300" },
     {
-      name: "Python",
+      name: !isMobile ? "Python" : "Py..",
       icon: "teenyicons:python-solid",
       color: "text-yellow-300",
     },
-    { name: "Kotlin", icon: "cib:kotlin", color: "text-purple-300" },
+    { name: !isMobile ?  "Kotlin" : "Ko..", icon: "cib:kotlin", color: "text-purple-300" },
   ];
 
   const menuItems: MenuItem[] = [
@@ -136,7 +136,7 @@ export default function Home() {
                       <div className="hover:underline cursor-pointer flex items-center gap-2">
                         <Icon
                           icon="tabler:hand-click"
-                          className={cn("text-white", {
+                          className={cn("text-white hidden sm:flex", {
                             "text-lg": isMobile,
                             "text-xl": !isMobile,
                           })}
