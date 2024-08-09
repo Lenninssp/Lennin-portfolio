@@ -95,13 +95,13 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center w-full h-full">
         <div
           className={cn(
-            "bg-opacity-60 h-5/6 md:w-10/12 lg:w-1/2 border animate-fade-up animate-delay-[2000ms] flex justify-center overflow-auto",
+            "bg-opacity-60 h-full md:h-5/6 md:w-10/12 lg:w-1/2 border animate-fade-up animate-delay-[2000ms] flex justify-center overflow-auto",
             style
           )}
         >
           <div className="h-fit w-full grid grid-cols-6 p-5 gap-5">
-            <div className={cn("col-span-4 grid grid-cols-2 h-fit", style)}>
-              <div className={cn("p-3 flex flex-col justify-around", style)}>
+            <div className={cn("col-span-4 grid grid-cols-2 h-full", style)}>
+              <div className={cn("p-3 flex h-full flex-col justify-around", style)}>
                 {technologies.map((tech) => (
                   <div
                     key={tech.name}
@@ -118,7 +118,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className={cn("p-3 h-fit", style)}>
+              <div className={cn("p-3 h-full  flex items-center", style)}>
                 <Image
                   src="./images/cartoon.jpeg"
                   alt="cartoon"
@@ -131,7 +131,7 @@ export default function Home() {
             <div className={cn("col-span-2 p-0 h-full", style)}>
               <div className="h-full flex p-3 flex-col justify-around items-start truncate">
                 {menuItems.map((item) => (
-                  <div key={item.name} className="flex items-center truncate">
+                  <div key={item.name} className="flex items-center truncate p-3">
                     <Link href="/" className="flex">
                       <div className="hover:underline cursor-pointer flex items-center gap-2">
                         <Icon
