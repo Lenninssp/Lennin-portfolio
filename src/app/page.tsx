@@ -6,16 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
+import { MenuItem, Technology } from "@/utils/types";
+import { MenuComponent } from "@/components/menu/menu";
 
-interface Technology {
-  name: string;
-  icon: string;
-  color: string;
-}
 
-interface MenuItem {
-  name: string;
-}
 
 export default function Home() {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -48,10 +42,10 @@ export default function Home() {
   ];
 
   const menuItems: MenuItem[] = [
-    { name: "Projects" },
-    { name: "Experiences" },
-    { name: "Social" },
-    { name: "About Me" },
+    { name: "Projects" , link: "" },
+    { name: "Experiences", link: "" },
+    { name: "Social", link: "/social" },
+    { name: "About Me" , link: ""},
   ];
 
   const experiences = [
@@ -129,24 +123,7 @@ export default function Home() {
               </div>
             </div>
             <div className={cn("col-span-2 p-0 h-full", style)}>
-              <div className="h-full flex p-3 flex-col justify-around items-start truncate">
-                {menuItems.map((item) => (
-                  <div key={item.name} className="flex items-center truncate p-3">
-                    <Link href="/" className="flex">
-                      <div className="hover:underline cursor-pointer flex items-center gap-2">
-                        <Icon
-                          icon="tabler:hand-click"
-                          className={cn("text-white", {
-                            "text-lg": isMobile,
-                            "text-xl": !isMobile,
-                          })}
-                        />
-                        {item.name}
-                      </div>
-                    </Link>
-                  </div>
-                ))}
-              </div>
+              <MenuComponent menuItems={menuItems}/>
             </div>
             <div
               className={cn(
