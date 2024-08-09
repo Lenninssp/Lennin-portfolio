@@ -124,6 +124,7 @@ export default function Home() {
                   alt="cartoon"
                   width={isMobile ? 200 : 500}
                   height={isMobile ? 150 : 300}
+                  unoptimized
                 />
               </div>
             </div>
