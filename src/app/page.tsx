@@ -1,113 +1,208 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import { Icon } from "@iconify/react";
+import Link from "next/link";
 import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from "react";
+
+interface Technology {
+  name: string;
+  icon: string;
+  color: string;
+}
+
+interface MenuItem {
+  name: string;
+}
 
 export default function Home() {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setTheme(
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
+      );
+    }
+  }, []);
+
+  const style =
+    theme === "light"
+      ? "bg-gray-100 border border-gray-300"
+      : "bg-gray-800 border border-gray-700";
+
+  const technologies: Technology[] = [
+    { name: "React JS", icon: "ri:reactjs-fill", color: "text-blue-300" },
+    { name: "TypeScript", icon: "bxl:typescript", color: "text-blue-300" },
+    {
+      name: "Python",
+      icon: "teenyicons:python-solid",
+      color: "text-yellow-300",
+    },
+    { name: "Kotlin", icon: "cib:kotlin", color: "text-purple-300" },
+  ];
+
+  const menuItems: MenuItem[] = [
+    { name: "Projects" },
+    { name: "Experiences" },
+    { name: "Social" },
+    { name: "About Me" },
+  ];
+
+  const experiences = [
+    {
+      title: "FrontEnd Developer",
+      time: "Present",
+      company: "Hadaly",
+      location: "Montreal, QC, Canada",
+      company_link: "https://hadaly.ca/",
+      link: "",
+    },
+    {
+      title: "Android Developer",
+      time: "2023",
+      company: "Serinpet",
+      location: "Bogota, Colmobia",
+      company_link: "https://www.serinpet.com/index_ing.php",
+      link: "",
+    },
+    {
+      title: "Software Developer",
+      time: "2022",
+      company: "Campus Naranja",
+      location: "Ibague, Colombia",
+      company_link: "https://www.instagram.com/campusnaranja/?hl=en",
+      link: "",
+    },
+  ];
+
+  const education = [
+    {
+      title: "DEC in compueter science",
+      time: "Present",
+      company: "College LaSalle",
+      location: "Montreal, QC, Canada",
+      company_link: "https://lasallecollege.lcieducation.com/en/",
+    },]
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="h-screen w-screen">
+      <div className="flex flex-col justify-center items-center w-full h-full">
+        <div
+          className={cn(
+            "bg-opacity-60 h-5/6 md:w-10/12 lg:w-1/2 border animate-fade-up animate-delay-[2000ms] flex justify-center overflow-auto",
+            style
+          )}
+        >
+          <div className="h-fit w-full grid grid-cols-6 p-5 gap-5">
+            <div className={cn("col-span-4 grid grid-cols-2 h-fit", style)}>
+              <div className={cn("p-3 flex flex-col justify-around", style)}>
+                {technologies.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className="flex items-center gap-2 truncate"
+                  >
+                    - {tech.name}
+                    <Icon
+                      icon={tech.icon}
+                      className={cn(tech.color, {
+                        "text-xl": isMobile,
+                        "text-2xl": !isMobile,
+                      })}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className={cn("p-3 h-fit", style)}>
+                <Image
+                  src="/images/cartoon.jpeg"
+                  alt="cartoon"
+                  width={isMobile ? 200 : 500}
+                  height={isMobile ? 150 : 300}
+                />
+              </div>
+            </div>
+            <div className={cn("col-span-2 p-0 h-full", style)}>
+              <div className="h-full flex p-3 flex-col justify-around items-start truncate">
+                {menuItems.map((item) => (
+                  <div key={item.name} className="flex items-center truncate">
+                    <Link href="/" className="flex">
+                      <div className="hover:underline cursor-pointer flex items-center gap-2">
+                        <Icon
+                          icon="tabler:hand-click"
+                          className={cn("text-white", {
+                            "text-lg": isMobile,
+                            "text-xl": !isMobile,
+                          })}
+                        />
+                        {item.name}
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div
+              className={cn(
+                "col-span-6 h-20 bg-gradient-to-r px-3 from-pink-900 via-indigo-500 to-pink-900 items-center text-center justify-center flex",
+                style
+              )}
+            >
+              &quot;Scalable and sustaible code impacts the the world not for
+              what it does, but for what it doesn&apos;t&quot;
+            </div>
+            <div className={cn("col-span-3 p-3", style)}>
+              <div className=" flex justify-center mb-2">Experience</div>
+              {experiences.map((experience) => (
+                <div
+                  key={experience.title}
+                  className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
+                >
+                  <Link href={experience.company_link} target="_blank" rel="noopener noreferrer">
+                    <div className=" flex justify-center">
+                      {experience.title}
+                    </div>
+                    <div className="flex justify-around text-gray-400">
+                      {experience.company} ({experience.time}){" "}
+                    </div>
+                    <div className="flex justify-center text-sm text-gray-500">
+                      {experience.location}
+                    </div>
+                    <div></div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <div className={cn("col-span-3 p-3", style)}>
+            <div className=" flex justify-center mb-2">Education</div>
+              {education.map((experience) => (
+                <div
+                  key={experience.title}
+                  className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
+                >
+                  <Link href={experience.company_link} target="_blank" rel="noopener noreferrer">
+                    <div className=" flex justify-center">
+                      {experience.title}
+                    </div>
+                    <div className="flex justify-around text-gray-400">
+                      {experience.company} ({experience.time}){" "}
+                    </div>
+                    <div className="flex justify-center text-sm text-gray-500">
+                      {experience.location}
+                    </div>
+                    <div></div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
