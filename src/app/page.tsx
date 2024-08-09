@@ -120,7 +120,7 @@ export default function Home() {
               </div>
               <div className={cn("p-3 h-fit", style)}>
                 <Image
-                  src="/images/cartoon.jpeg"
+                  src="./images/cartoon.jpeg"
                   alt="cartoon"
                   width={isMobile ? 200 : 500}
                   height={isMobile ? 150 : 300}
