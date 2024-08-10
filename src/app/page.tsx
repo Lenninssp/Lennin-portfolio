@@ -5,7 +5,6 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
-import { useEffect, useState } from "react";
 import { MenuItem, Technology } from "@/utils/types";
 import { MenuComponent } from "@/components/menu/menu";
 import useMyTheme from "@/components/ui/colorStyle";
