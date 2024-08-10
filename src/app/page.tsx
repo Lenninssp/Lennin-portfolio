@@ -79,6 +79,13 @@ export default function Home() {
       location: "Montreal, QC, Canada",
       company_link: "https://lasallecollege.lcieducation.com/en/",
     },
+    {
+      title: "Systems Engineering",
+      time: "2022",
+      company: "Universidad Javeriana",
+      location: "Bogota, Colombia",
+      company_link: "https://www.javeriana.edu.co/inicio",
+    },
   ];
 
   return (
