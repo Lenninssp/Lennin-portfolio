@@ -125,7 +125,7 @@ export default function Home() {
         {experiences.map((experience) => (
           <div
             key={experience.title}
-            className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
+            className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-wiggle hover:animate-infinite hover:animate-delay-0"
           >
             <Link
               href={experience.company_link}
@@ -134,7 +134,7 @@ export default function Home() {
             >
               <div className=" flex justify-center">{experience.title}</div>
               <div className="flex justify-around text-gray-400">
-                {experience.company} ({experience.time}){" "}
+                {experience.company} ({experience.time})
               </div>
               <div className="flex justify-center text-sm text-gray-500">
                 {experience.location}
@@ -149,7 +149,7 @@ export default function Home() {
         {education.map((experience) => (
           <div
             key={experience.title}
-            className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
+            className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-wiggle hover:animate-infinite hover:animate-delay-0"
           >
             <Link
               href={experience.company_link}
