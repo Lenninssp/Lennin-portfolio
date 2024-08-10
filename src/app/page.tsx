@@ -8,7 +8,6 @@ import { useMediaQuery } from "react-responsive";
 import { MenuItem, Technology } from "@/utils/types";
 import { MenuComponent } from "@/components/menu/menu";
 import useMyTheme from "@/components/ui/colorStyle";
-import { GridStructure } from "@/components/grid/grid";
 
 export default function Home() {
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
@@ -83,7 +82,7 @@ export default function Home() {
   ];
 
   return (
-    <GridStructure>
+    <>
       <div className={cn("col-span-4 grid grid-cols-2 h-full", style)}>
         <div className={cn("p-3 flex h-full flex-col justify-around", style)}>
           {technologies.map((tech) => (
@@ -169,6 +168,6 @@ export default function Home() {
           </div>
         ))}
       </div>
-    </GridStructure>
+    </>
   );
 }

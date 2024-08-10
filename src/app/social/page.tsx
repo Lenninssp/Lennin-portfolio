@@ -5,7 +5,6 @@ import { useMediaQuery } from "react-responsive";
 import { MenuItem } from "@/utils/types";
 import { MenuComponent } from "@/components/menu/menu";
 import useMyTheme from "@/components/ui/colorStyle";
-import { GridStructure } from "@/components/grid/grid";
 
 export default function Social() {
   const { style } = useMyTheme();
@@ -19,7 +18,7 @@ export default function Social() {
   ];
 
   return (
-    <GridStructure>
+    <>
       <div className={cn("col-span-4 grid grid-cols-2 h-full", style)}>
         <div
           className={cn("p-3 flex h-full flex-col justify-around", style)}
@@ -36,6 +35,6 @@ export default function Social() {
       <div className={cn("col-span-3 p-3", style)}>
         <div className=" flex justify-center mb-2"></div>
       </div>
-    </GridStructure>
+    </>
   );
 }

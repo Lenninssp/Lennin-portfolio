@@ -2,7 +2,6 @@
 import { useMediaQuery } from "react-responsive";
 import { MenuItem } from "@/utils/types";
 import { MenuComponent } from "@/components/menu/menu";
-import { GridStructure } from "@/components/grid/grid";
 
 export default function Experience() {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -15,8 +14,8 @@ export default function Experience() {
   ];
 
   return (
-    <GridStructure>
+    <>
       <MenuComponent menuItems={menuItems} />
-    </GridStructure>
+    </>
   );
 }
