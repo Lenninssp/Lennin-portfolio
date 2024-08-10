@@ -8,44 +8,42 @@ import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
 import { MenuItem, Technology } from "@/utils/types";
 import { MenuComponent } from "@/components/menu/menu";
-
-
+import useMyTheme from "@/components/ui/colorStyle";
+import { GridStructure } from "@/components/grid/grid";
 
 export default function Home() {
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
-  const [theme, setTheme] = useState("dark");
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setTheme(
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light"
-      );
-    }
-  }, []);
-
-  const style =
-    theme === "light"
-      ? "bg-gray-100 border border-gray-300"
-      : "bg-gray-800 border border-gray-700";
+  const { style } = useMyTheme();
 
   const technologies: Technology[] = [
-    { name: !isMobile ? "React JS" : "Re..", icon: "ri:reactjs-fill", color: "text-blue-300" },
-    { name: !isMobile ? "TypeScript" : "Ty..", icon: "bxl:typescript", color: "text-blue-300" },
+    {
+      name: !isMobile ? "React JS" : "Re..",
+      icon: "ri:reactjs-fill",
+      color: "text-blue-300",
+    },
+    {
+      name: !isMobile ? "TypeScript" : "Ty..",
+      icon: "bxl:typescript",
+      color: "text-blue-300",
+    },
     {
       name: !isMobile ? "Python" : "Py..",
       icon: "teenyicons:python-solid",
       color: "text-yellow-300",
     },
-    { name: !isMobile ?  "Kotlin" : "Ko..", icon: "cib:kotlin", color: "text-purple-300" },
+    {
+      name: !isMobile ? "Kotlin" : "Ko..",
+      icon: "cib:kotlin",
+      color: "text-purple-300",
+    },
   ];
 
   const menuItems: MenuItem[] = [
-    { name: "Projects" , link: "" },
-    { name: "Experiences", link: "" },
+    { name: "Projects", link: "/projects" },
+    { name: "Experiences", link: "/experience" },
     { name: "Social", link: "/social" },
-    { name: "About Me" , link: ""},
+    { name: "About Me", link: "/about" },
   ];
 
   const experiences = [
@@ -82,105 +80,96 @@ export default function Home() {
       company: "College LaSalle",
       location: "Montreal, QC, Canada",
       company_link: "https://lasallecollege.lcieducation.com/en/",
-    },]
+    },
+  ];
 
   return (
-    <div className="h-screen w-screen">
-      <div className="flex flex-col justify-center items-center w-full h-full">
-        <div
-          className={cn(
-            "bg-opacity-60 h-full md:h-5/6 md:w-10/12 lg:w-1/2 border animate-fade-up animate-delay-[2000ms] flex justify-center overflow-auto",
-            style
-          )}
-        >
-          <div className="h-fit w-full grid grid-cols-6 p-5 gap-5">
-            <div className={cn("col-span-4 grid grid-cols-2 h-full", style)}>
-              <div className={cn("p-3 flex h-full flex-col justify-around", style)}>
-                {technologies.map((tech) => (
-                  <div
-                    key={tech.name}
-                    className="flex items-center gap-2 truncate"
-                  >
-                    - {tech.name}
-                    <Icon
-                      icon={tech.icon}
-                      className={cn(tech.color, {
-                        "text-xl": isMobile,
-                        "text-2xl": !isMobile,
-                      })}
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className={cn("p-3 h-full  flex items-center", style)}>
-                <Image
-                  src="./images/cartoon.jpeg"
-                  alt="cartoon"
-                  width={isMobile ? 200 : 500}
-                  height={isMobile ? 150 : 300}
-                  unoptimized
-                />
-              </div>
+    <GridStructure>
+      <div className={cn("col-span-4 grid grid-cols-2 h-full", style)}>
+        <div className={cn("p-3 flex h-full flex-col justify-around", style)}>
+          {technologies.map((tech) => (
+            <div key={tech.name} className="flex items-center gap-2 truncate">
+              - {tech.name}
+              <Icon
+                icon={tech.icon}
+                className={cn(tech.color, {
+                  "text-xl": isMobile,
+                  "text-2xl": !isMobile,
+                })}
+              />
             </div>
-            <div className={cn("col-span-2 p-0 h-full", style)}>
-              <MenuComponent menuItems={menuItems}/>
-            </div>
-            <div
-              className={cn(
-                "col-span-6 h-20 bg-gradient-to-r px-3 from-pink-900 via-indigo-500 to-pink-900 items-center text-center justify-center flex",
-                style
-              )}
-            >
-              &quot;Scalable and sustaible code impacts the the world not for
-              what it does, but for what it doesn&apos;t&quot;
-            </div>
-            <div className={cn("col-span-3 p-3", style)}>
-              <div className=" flex justify-center mb-2">Experience</div>
-              {experiences.map((experience) => (
-                <div
-                  key={experience.title}
-                  className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
-                >
-                  <Link href={experience.company_link} target="_blank" rel="noopener noreferrer">
-                    <div className=" flex justify-center">
-                      {experience.title}
-                    </div>
-                    <div className="flex justify-around text-gray-400">
-                      {experience.company} ({experience.time}){" "}
-                    </div>
-                    <div className="flex justify-center text-sm text-gray-500">
-                      {experience.location}
-                    </div>
-                    <div></div>
-                  </Link>
-                </div>
-              ))}
-            </div>
-            <div className={cn("col-span-3 p-3", style)}>
-            <div className=" flex justify-center mb-2">Education</div>
-              {education.map((experience) => (
-                <div
-                  key={experience.title}
-                  className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
-                >
-                  <Link href={experience.company_link} target="_blank" rel="noopener noreferrer">
-                    <div className=" flex justify-center">
-                      {experience.title}
-                    </div>
-                    <div className="flex justify-around text-gray-400">
-                      {experience.company} ({experience.time}){" "}
-                    </div>
-                    <div className="flex justify-center text-sm text-gray-500">
-                      {experience.location}
-                    </div>
-                    <div></div>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
+        </div>
+        <div className={cn("p-3 h-full  flex items-center", style)}>
+          <Image
+            src="./images/cartoon.jpeg"
+            alt="cartoon"
+            width={isMobile ? 200 : 500}
+            height={isMobile ? 150 : 300}
+            unoptimized
+          />
         </div>
       </div>
-    </div>
+      <div className={cn("col-span-2 p-0 h-full", style)}>
+        <MenuComponent menuItems={menuItems} />
+      </div>
+      <div
+        className={cn(
+          "col-span-6 h-20 bg-gradient-to-r px-3 from-pink-900 via-indigo-500 to-pink-900 items-center text-center justify-center flex",
+          style
+        )}
+      >
+        &quot;Scalable and sustaible code impacts the the world not for what it
+        does, but for what it doesn&apos;t&quot;
+      </div>
+      <div className={cn("col-span-3 p-3", style)}>
+        <div className=" flex justify-center mb-2">Experience</div>
+        {experiences.map((experience) => (
+          <div
+            key={experience.title}
+            className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
+          >
+            <Link
+              href={experience.company_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className=" flex justify-center">{experience.title}</div>
+              <div className="flex justify-around text-gray-400">
+                {experience.company} ({experience.time}){" "}
+              </div>
+              <div className="flex justify-center text-sm text-gray-500">
+                {experience.location}
+              </div>
+              <div></div>
+            </Link>
+          </div>
+        ))}
+      </div>
+      <div className={cn("col-span-3 p-3", style)}>
+        <div className=" flex justify-center mb-2">Education</div>
+        {education.map((experience) => (
+          <div
+            key={experience.title}
+            className="flex flex-col bg-gray-900 border border-gray-700 p-3 hover:animate-shake hover:animate-once hover:animate-delay-0"
+          >
+            <Link
+              href={experience.company_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className=" flex justify-center">{experience.title}</div>
+              <div className="flex justify-around text-gray-400">
+                {experience.company} ({experience.time}){" "}
+              </div>
+              <div className="flex justify-center text-sm text-gray-500">
+                {experience.location}
+              </div>
+              <div></div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </GridStructure>
   );
 }
