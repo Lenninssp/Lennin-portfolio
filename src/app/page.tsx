@@ -16,22 +16,22 @@ export default function Home() {
 
   const technologies: Technology[] = [
     {
-      name: !isMobile ? "React JS" : "Re..",
+      name: "React JS",
       icon: "ri:reactjs-fill",
       color: "text-blue-300",
     },
     {
-      name: !isMobile ? "TypeScript" : "Ty..",
+      name: "TypeScript",
       icon: "bxl:typescript",
       color: "text-blue-300",
     },
     {
-      name: !isMobile ? "Python" : "Py..",
+      name: "Python",
       icon: "teenyicons:python-solid",
       color: "text-yellow-300",
     },
     {
-      name: !isMobile ? "Kotlin" : "Ko..",
+      name: "Kotlin",
       icon: "cib:kotlin",
       color: "text-purple-300",
     },
@@ -90,8 +90,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={cn("col-span-4 grid grid-cols-2 h-full", style)}>
-        <div className={cn("p-3 flex h-full flex-col justify-around", style)}>
+      <div className={cn("col-span-2  grid-cols-2  p-3 flex h-full flex-col justify-around", style)}>
           {technologies.map((tech) => (
             <div key={tech.name} className="flex items-center gap-2 truncate">
               - {tech.name}
@@ -104,8 +103,8 @@ export default function Home() {
               />
             </div>
           ))}
-        </div>
-        <div className={cn("p-3 h-full  flex items-center", style)}>
+      </div>
+      <div className={cn("h-full col-span-2 flex items-center")}>
           <Image
             src="./images/cartoon.jpeg"
             alt="cartoon"
@@ -114,7 +113,6 @@ export default function Home() {
             unoptimized
           />
         </div>
-      </div>
       <div className={cn("col-span-2 p-0 h-full", style)}>
         <MenuComponent menuItems={menuItems} />
       </div>

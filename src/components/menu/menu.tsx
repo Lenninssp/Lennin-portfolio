@@ -14,7 +14,7 @@ export const MenuComponent: FC<MenuComponentProps> = ({ menuItems }) => {
   return (
     <div className={cn("h-full flex p-3 flex-col justify-around items-start truncate",isMobile ? "p-1" : "p-3")}>
       {menuItems.map((item) => (
-        <div key={item.name} className={cn("flex items-center truncate",isMobile ? "p-0 text-xs" : "p-3")}>
+        <div key={item.name} className={cn("flex items-center truncate",isMobile ? "p-0 " : "p-3")}>
           <Link href={item.link} className="flex">
             <div className="hover:underline cursor-pointer flex items-center gap-2">
               <Icon
