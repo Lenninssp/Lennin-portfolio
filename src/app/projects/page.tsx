@@ -4,11 +4,11 @@ import { MenuItem } from "@/utils/types";
 import { MenuComponent } from "@/components/menu/menu";
 import useMyTheme from "@/components/ui/colorStyle";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Projects() {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-  const {style} = useMyTheme()
-
+  const { style } = useMyTheme();
 
   const menuItems: MenuItem[] = [
     { name: "Home", link: "/" },
@@ -17,10 +17,101 @@ export default function Projects() {
     { name: "About Me", link: "/about" },
   ];
 
-  return (
-    <div className={cn("col-span-2 p-0 h-full", style)}>
+  const projectsList = [
+    {
+      id: 1,
+      title: "Newtflix, a Netflix clone",
+      description:
+        "A Netflix clone that i did using only react, meant for my own educationla porpuses and with no intention of menetization of the product",
+      technologies: [
+        { title: "Firebase", description: "" },
+        { title: "React JS", description: "" },
+      ],
+      picture: "",
+      link: "https://newtflix-clone.netlify.app/login",
+      source: "https://newtflix-clone.netlify.app/login",
+    },
+    {
+      id: 2,
+      title: "Personal Portfolio",
+      description:
+        "A Netflix clone that i did using only react, meant for my own educationla porpuses and with no intention of menetization of the product",
+      technologies: [
+        { title: "Firebase", description: "" },
+        { title: "React JS", description: "" },
+      ],
+      picture: "",
+      link: "https://newtflix-clone.netlify.app/login",
+      source: "https://newtflix-clone.netlify.app/login",
+    },
+    {
+      id: 3,
+      title: "3D engine in rust",
+      description:
+        "A Netflix clone that i did using only react, meant for my own educationla porpuses and with no intention of menetization of the product",
+      technologies: [
+        { title: "Firebase", description: "" },
+        { title: "React JS", description: "" },
+      ],
+      picture: "",
+      link: "https://newtflix-clone.netlify.app/login",
+      source: "https://newtflix-clone.netlify.app/login",
+    },
+    {
+      id: 4,
+      title: "Harmo binary, program music",
+      description:
+        "A Netflix clone that i did using only react, meant for my own educationla porpuses and with no intention of menetization of the product",
+      technologies: [
+        { title: "Firebase", description: "" },
+        { title: "React JS", description: "" },
+      ],
+      picture: "",
+      link: "https://newtflix-clone.netlify.app/login",
+      source: "https://newtflix-clone.netlify.app/login",
+    },
+  ];
 
-      <MenuComponent menuItems={menuItems} />
-    </div>
+  return (
+    <>
+      <div className={cn("col-span-4 row-span-2 overflow-y-auto ", style)}>
+        {projectsList.map((project) => (
+          <div key={project.id} className={cn("p-3", style)}>
+            <div className="flex justify-between">
+              <div className={cn("w-fit py-1 px-3", style)}>
+                <Link href={project.link}>{project.title}</Link>
+              </div>
+              <div className={cn("w-fit py-1 px-3", style)}>
+                <Link href={project.source}>Source</Link>
+              </div>
+            </div>
+            <div className={cn("p-3 grid grid-cols-3 gap-2", style)}>
+              <div className="col-span-2">{project.description}</div>
+              <div className={cn("col-span-1 p-3", style)}>
+                {project.technologies.map((technologie) => (
+                  <div key={technologie.title}>-{technologie.title}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className={cn("col-span-2 p-0 h-full", style)}>
+        <MenuComponent menuItems={menuItems} />
+      </div>
+      <div
+        className={cn(
+          "col-span-2 h-full flex flex-col items-center justify-center p-3 gap-3",
+          style
+        )}
+      >
+        <div>Next Project(s)?</div>
+        <div className={cn("p-2", style)}>
+          In the next weeks I will start with the creation the new web page for
+          the Artist Alejandro Ladeguev, who has just released his latest album
+          called &quot;Cosmosinfonica&quot;
+        </div>
+      </div>
+    </>
   );
 }

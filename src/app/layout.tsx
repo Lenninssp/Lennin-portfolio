@@ -65,7 +65,7 @@ export default function RootLayout({
                   style
                 )}
               >
-                <div className="h-fit w-full grid grid-cols-6 p-5 gap-5">
+                <div className="h-full w-full grid grid-cols-6 p-5 gap-5">
                   {children}
                 </div>
               </div>
