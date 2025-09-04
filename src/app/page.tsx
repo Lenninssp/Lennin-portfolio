@@ -3,7 +3,7 @@ export const Home = () => {
 
   return (
     <div>
-      Lennin's portfolio
+      Lennin s portfolio
     </div>
   )
 }
