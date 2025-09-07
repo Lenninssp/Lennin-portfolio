@@ -28,10 +28,24 @@ export const RoundedLink = ({
     xl: "w-12 h-12 p-5",
   };
 
+  const TextSize: Record<LinkSize, string> = {
+    xs: "text-xs",
+    sm: "text-sm",
+    md: "text-md",
+    lg: "text-lg",
+    xl: "text-xl",
+  };
+
   const content = (
-    <div className={cn("flex items-center w-fit", className)}>
-      <Icon icon={icon} className={cn(RoundedSize[size])} />
-      {text && <span className="ml-2">{text}</span>}
+    <div
+      className={cn(
+        "flex items-center w-fit",
+        cn(RoundedSize[size]),
+        className
+      )}
+    >
+      <Icon icon={icon} className=" h-full w-full"/>
+      {text && <span className={cn("ml-2 text", TextSize[size])}>{text}</span>}
       {children}
     </div>
   );
@@ -39,7 +53,10 @@ export const RoundedLink = ({
   if (!link) return content;
 
   return (
-    <Link href={link} className="hover:opacity-80 cursor-pointer transition-opacity">
+    <Link
+      href={link}
+      className="hover:opacity-80 cursor-pointer transition-opacity"
+    >
       {content}
     </Link>
   );
