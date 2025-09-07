@@ -9,11 +9,14 @@ export interface TextLineInterface extends React.HTMLAttributes<HTMLDivElement> 
 export const TextLine = ({
   text,
   className,
+  children,
+  ...props
 }: TextLineInterface) => {
 
   return (
-    <div className={cn("",className)}>
+    <div className={cn("",className)} {...props}>
       {text}
+      {children}
     </div>
   )
 }
