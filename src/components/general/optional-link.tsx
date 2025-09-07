@@ -19,7 +19,7 @@ export const OptionalLink = ({
       href={link}
       className={cn("hover:opacity-80 cursor-pointer transition-opacity", className)}
     >
-      {children}
+      <span>{children}</span>
     </Link>
   );
 };

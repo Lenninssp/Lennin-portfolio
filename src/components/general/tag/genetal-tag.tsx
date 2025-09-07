@@ -3,10 +3,10 @@ import { RoundedLinkInterface } from "../rounded-link/rounded-link";
 import { VariantProps } from "class-variance-authority";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { OptionalLink } from "../optional-link";
+import { cn } from "@/lib/utils";
 
-interface GeneralTagInterface {
+interface GeneralTagInterface extends VariantProps<typeof badgeVariants> {
   text: string;
-  variant?: typeof badgeVariants.arguments;
   icon?: string;
   link?: string;
   className?: string;
@@ -15,15 +15,15 @@ interface GeneralTagInterface {
 export const GeneralTag = ({
   text,
   icon,
-  variant,
   link,
+  variant,
   className,
 }: GeneralTagInterface) => {
   return (
     <OptionalLink link={link}>
-      <Badge variant={variant}>
+      <Badge variant={variant} className={cn("", className)}>
         {icon && <Icon icon={icon} />}
-        <span className={icon && "ml-2"}>{text}</span>
+        <span className={cn(icon && "ml-2")}>{text}</span>
       </Badge>
     </OptionalLink>
   );
