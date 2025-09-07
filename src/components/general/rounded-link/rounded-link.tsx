@@ -1,10 +1,11 @@
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { OptionalLink } from "../optional-link";
 
 type LinkSize = "xs" | "sm" | "md" | "lg" | "xl";
 
-interface RoundedLinkInterface {
+export interface RoundedLinkInterface {
   icon: string;
   text?: string;
   link?: string;
@@ -36,28 +37,21 @@ export const RoundedLink = ({
     xl: "text-xl",
   };
 
-  const content = (
-    <div
-      className={cn(
-        "flex items-center w-fit",
-        cn(RoundedSize[size]),
-        className
-      )}
-    >
-      <Icon icon={icon} className=" h-full w-full"/>
-      {text && <span className={cn("ml-2 text", TextSize[size])}>{text}</span>}
-      {children}
-    </div>
-  );
-
-  if (!link) return content;
-
   return (
-    <Link
-      href={link}
-      className="hover:opacity-80 cursor-pointer transition-opacity"
-    >
-      {content}
-    </Link>
+    <OptionalLink link={link}>
+      <div
+        className={cn(
+          "flex items-center w-fit",
+          cn(RoundedSize[size]),
+          className
+        )}
+      >
+        <Icon icon={icon} className=" h-full w-full" />
+        {text && (
+          <span className={cn("ml-2 text", TextSize[size])}>{text}</span>
+        )}
+        {children}
+      </div>
+    </OptionalLink>
   );
 };
