@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { OptionalLink } from "../optional-link";
+import { LinkSize } from "@/types/sizes";
 
-type LinkSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 export interface RoundedLinkInterface {
   icon: string;
