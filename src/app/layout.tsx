@@ -16,7 +16,7 @@ export default function RootLayout({
             <div className="flex flex-col justify-center items-center w-full h-full">
               <div
                 className={cn(
-                  "bg-opacity-60 h-full md:h-5/6 md:w-10/12 lg:w-2/3 border  flex justify-center overflow-auto"
+                  "bg-opacity-60 h-full md:h-5/6 md:w-10/12 lg:w-2/3 border rounded-2xl  flex justify-center overflow-auto"
                 )}
               >
                 <div className="h-full w-full flex p-10">
