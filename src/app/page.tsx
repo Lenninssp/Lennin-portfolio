@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import { Sidebar } from "@/features/sidebar";
+import { Sidebar } from "@/components/sidebar";
 import { useState } from "react";
 
 const Home = () => {
