@@ -14,7 +14,7 @@ export const PageProvider = ({children}: {children: React.ReactNode}) => {
     setSelectedPage(newPage);
   }
 
-  const value = useMemo(() => ({selectedPage , handlePageChange}),  []) 
+  const value = useMemo(() => ({selectedPage , handlePageChange}),  [selectedPage, handlePageChange]) 
   return (
     <PageContext.Provider value={value}>
       {children}
