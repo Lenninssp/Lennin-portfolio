@@ -1,4 +1,4 @@
-export enum Pages {
+export enum PagesEnum {
   PROJECTS,
   ABOUT_ME,
   CONTACT,
