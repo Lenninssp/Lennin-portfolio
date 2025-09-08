@@ -3,15 +3,14 @@
 import { Input } from "@/components/ui/input";
 import { Sidebar } from "@/components/sidebar";
 import { useState } from "react";
+import { ContentRouter } from "@/components/content";
 
 const Home = () => {
 
   return (
-    <div className=" w-full flex flex-row">
+    <div className=" w-full flex flex-row gap-4">
       <Sidebar />
-      <div className=" flex">
-
-      </div>
+      <ContentRouter />
     </div>
   )
 }
