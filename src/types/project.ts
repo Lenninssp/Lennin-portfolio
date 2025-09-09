@@ -8,6 +8,14 @@ export type ProjectTag =
   | "frontend"
   | "backend"
   | "fun"
+  | "fullstack"
+  | "django"
+  | "deno" 
+  | "python"
+  | "node"
+  | "postgresql"
+  | "docker"
+  | "ai"
 
 export type Project = {
   slug: string;                // unique id used in routes (/projects/[slug])

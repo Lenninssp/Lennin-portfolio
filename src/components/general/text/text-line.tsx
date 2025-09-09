@@ -22,8 +22,8 @@ export const TextLine = ({
 }: TextLineInterface) => {
   const textFormat: Record<TextType, string> = {
     title: "text-2xl",
-    subTitle: "text-xl text-red-500",
-    text: "",
+    subTitle: "text-lg text-red-500",
+    text: "text-base",
     importantText: "text-red-500",
     link: "italic",
   };
