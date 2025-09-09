@@ -51,6 +51,7 @@ export const AboutMe = () => {
           text="LinkedIn"
           icon="mdi:linkedin"
         />
+        
         <RoundedLink link="pdf/resume.pdf" text="Resume" icon="mdi:file-account" />
       </div>
     </ContentFrame>

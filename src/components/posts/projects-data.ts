@@ -9,6 +9,8 @@ export const projectsData: ReadonlyArray<Project> = [
     description: "Portfolio that shows my most relevant projects with a clean design and fast navigation.",
     imageUrl: "images/portfolio-lennin.png",
     tags: ["react", "frontend", "personal"],
+    repoUrl: "https://github.com/Lenninssp/Lennin-portfolio",
+    demoUrl: "https://lenninssp.github.io/Lennin-portfolio/",
   },
   {
     slug: "text-edit-vps",
