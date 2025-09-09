@@ -4,6 +4,7 @@ import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { PageProvider } from "@/contexts/selected-page";
+import { Toaster } from "sonner";
 
 export default function RootLayout({
   children,
@@ -28,6 +29,7 @@ export default function RootLayout({
             </div>
           </PageProvider>
         </main>
+        <Toaster/>
       </body>
     </html>
   );
