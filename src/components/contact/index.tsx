@@ -1,9 +1,10 @@
-import { ContentFrame } from "../content/content-frame"
+import { ContentFrame } from "../content/content-frame";
+import { TextLine } from "../general/text/text-line";
 
 export const Contact = () => {
   return (
     <ContentFrame>
-      Contact page
+      <TextLine text="Contact page" type="title" />
     </ContentFrame>
-  )
-}
+  );
+};
