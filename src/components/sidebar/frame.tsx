@@ -1,8 +1,18 @@
+import { cn } from "@/lib/utils";
+
 interface SidebarFrameProps {
-  children: React.ReactNode
+  className?: string;
+  children: React.ReactNode;
 }
-export const SidebarFrame = ({children}: SidebarFrameProps) => {
+export const SidebarFrame = ({ className, children }: SidebarFrameProps) => {
   return (
-    <div className=" w-fit h-full border-2 rounded-2xl p-4 flex flex-col">{children}</div>
-  )
-}
+    <div
+      className={cn(
+        " w-fit max-w-52 h-full border-2 rounded-2xl p-4 flex flex-col",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};

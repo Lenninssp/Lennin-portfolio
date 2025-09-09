@@ -4,11 +4,12 @@ import { RoundedLink } from "../general/rounded-link/rounded-link";
 import { TextLine } from "../general/text/text-line";
 import { Button } from "../ui/button";
 
+export const handleEmailClick = () => {
+  navigator.clipboard.writeText(process.env.NEXT_PUBLIC_MY_EMAIL ?? "");
+  toast("The link has been copied successfully");
+};
+
 export const Contact = () => {
-  const handleEmailClick = () => {
-    navigator.clipboard.writeText(process.env.NEXT_PUBLIC_MY_EMAIL ?? "");
-    toast("The link has been copied successfully")
-  };
   return (
     <ContentFrame className=" flex flex-col gap-4">
       <TextLine text="Contact page" type="title" />
