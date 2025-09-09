@@ -7,7 +7,7 @@ export const Projects = () => {
   const projects = getAllProjects();
   return (
     <ContentFrame className=" gap-3 flex-col">
-      <TextLine text="Projects page" type="title" />
+      <TextLine text="Projects" type="title" />
       {projects.map((project) => (
         <ProjectCard key={project.slug} project={project} />
       ))}

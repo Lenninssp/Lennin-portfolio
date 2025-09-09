@@ -12,7 +12,7 @@ export const handleEmailClick = () => {
 export const Contact = () => {
   return (
     <ContentFrame className=" flex flex-col gap-4">
-      <TextLine text="Contact page" type="title" />
+      <TextLine text="Contact me" type="title" />
       <div className=" h-full flex flex-col justify-start">
         <RoundedLink
           text="lenninssp1021@gmail.com"

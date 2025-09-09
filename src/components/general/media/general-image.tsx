@@ -13,13 +13,6 @@ interface GeneralImageInterface {
   className?: string;
 }
 
-const imageSize: Record<LinkSize, { width: number; height: number }> = {
-  xs: { width: 20, height: 20 },
-  sm: { width: 40, height: 40 },
-  md: { width: 70, height: 70 },
-  lg: { width: 90, height: 90 },
-  xl: { width: 300, height: 300 },
-};
 
 export const GeneralImage = ({
   src,
@@ -34,11 +27,12 @@ export const GeneralImage = ({
   return (
     <div
       className={cn(
-        "inline-block", 
+        "inline-block overflow-hidden", 
         framed && "border border-white",
         rounded,
         className
       )}
+      style={{ lineHeight: 0 }} 
     >
       <Image
         src={src}
@@ -46,6 +40,7 @@ export const GeneralImage = ({
         {...size}
         loading={loading}
         priority={priority}
+        style={{ objectFit: "cover" }}  
         unoptimized
       />
     </div>
