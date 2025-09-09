@@ -7,6 +7,7 @@ export const projectsData: ReadonlyArray<Project> = [
     subtitle: "And is a great portfolio",
     date: "2025-09-08",
     description: "Portfolio that shows my most relevant projects with a clean design and fast navigation.",
+    imageUrl: "images/portfolio-lennin.png",
     tags: ["react", "frontend", "personal"],
   },
   {
@@ -14,6 +15,7 @@ export const projectsData: ReadonlyArray<Project> = [
     title: "Text Edit App",
     subtitle: "Lightweight editor running on my VPS",
     date: "2025-07-10",
+    imageUrl:"images/text-edit.png",
     description: "A simple collaborative text editor deployed on my VPS with Docker, Next.js frontend, Django backend, and PostgreSQL.",
     tags: ["fullstack", "nextjs", "django", "postgresql", "docker"],
   },
@@ -22,6 +24,7 @@ export const projectsData: ReadonlyArray<Project> = [
     title: "Git Progress Sprite Maker",
     subtitle: "Commit daily, unlock a sprite",
     date: "2025-07-28",
+    imageUrl: "images/git-sprite.png",
     description: "Web app that rewards daily git commits with progress on ASCII art Pokémon sprites. Uses Prisma and Next.js.",
     tags: ["nextjs", "deno", "docker", "postgresql"],
   },

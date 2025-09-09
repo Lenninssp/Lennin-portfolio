@@ -8,8 +8,8 @@ interface ProjectCardInterface {
 }
 export const ProjectCard = ({project}: ProjectCardInterface) => {
   return (
-    <div className=" flex w-full h-fit border-2 border-white rounded-2xl p-3">
-      {project.imageUrl && <GeneralImage src={project.imageUrl} alt={project.title} />}
+    <div className=" flex w-full h-fit border-2 border-white rounded-2xl p-3 gap-3">
+      {project.imageUrl && <GeneralImage src={project.imageUrl} alt={project.title} size={{width: 200 , height: 200}} />}
       <div className=" flex flex-col h-full">
         <TextLine text={project.title} type="title" />
         {project.subtitle && <TextLine text={project.subtitle} type="subTitle" color="red" />}
