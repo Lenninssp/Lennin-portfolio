@@ -1,5 +1,5 @@
 import { toast } from "sonner";
-import { ContentFrame } from "../content/content-frame";
+import { GeneralContentFrame } from "../general/frame/content-frame";
 import { RoundedLink } from "../general/rounded-link/rounded-link";
 import { TextLine } from "../general/text/text-line";
 import { Button } from "../ui/button";
@@ -11,7 +11,7 @@ export const handleEmailClick = () => {
 
 export const Contact = () => {
   return (
-    <ContentFrame className=" flex flex-col gap-4">
+    <GeneralContentFrame className=" flex flex-col gap-4">
       <TextLine text="Contact me" type="title" />
       <div className=" h-full flex flex-col justify-start">
         <RoundedLink
@@ -32,6 +32,6 @@ export const Contact = () => {
           link="https://www.linkedin.com/in/lennin-sabogal/"
         />
       </div>
-    </ContentFrame>
+    </GeneralContentFrame>
   );
 };

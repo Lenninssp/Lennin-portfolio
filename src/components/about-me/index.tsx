@@ -1,11 +1,11 @@
-import { ContentFrame } from "../content/content-frame";
+import { GeneralContentFrame } from "../general/frame/content-frame";
 import { TextLine } from "../general/text/text-line";
 import { GeneralImage } from "../general/media/general-image";
 import { RoundedLink } from "../general/rounded-link/rounded-link";
 
 export const AboutMe = () => {
   return (
-    <ContentFrame className="flex flex-col items-center gap-6 text-center">
+    <GeneralContentFrame className="flex flex-col items-center gap-6 text-center">
       <GeneralImage
         src="images/personal-picture.jpeg" 
         alt="Lennin Sabogal portrait"
@@ -63,6 +63,6 @@ export const AboutMe = () => {
         
         <RoundedLink link="pdf/resume.pdf" text="Resume" icon="mdi:file-account" />
       </div>
-    </ContentFrame>
+    </GeneralContentFrame>
   );
 };

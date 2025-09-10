@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 
-interface ContentFrameProps {
+interface GeneralContentFrameProps {
   className?: string;
   children?: React.ReactNode;
 }
-export const ContentFrame = ({ className, children}: ContentFrameProps) => {
+export const GeneralContentFrame = ({ className, children}: GeneralContentFrameProps) => {
   return (
     <div className={cn("rounded-2xl border-2 border-white p-5 flex w-full h-full overflow-auto custom-scrollbar", className)}>
       {children}
