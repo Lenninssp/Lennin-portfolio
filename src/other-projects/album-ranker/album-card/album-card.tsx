@@ -33,7 +33,6 @@ export const AlbumCard = ({ track }: AlbumCardProps) => {
           src={imageSong}
           alt={track.strTrack}
           size={{ width: 200, height: 200 }}
-          className=" h-full flex items-center"
         />
       )}
       <div className=" h-full w-full flex flex-col">
@@ -41,6 +40,7 @@ export const AlbumCard = ({ track }: AlbumCardProps) => {
         <TextLine type="subTitle" color="red" text={track.strAlbum} />
         <TextLine type="subTitle" text={track.strArtist} />
         <TextLine
+        className="max-h-44"
           type="text"
           text={track.strDescriptionEN ?? "No description"}
         />
