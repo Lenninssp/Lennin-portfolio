@@ -2,15 +2,39 @@ import { usePageContext } from "@/contexts/selected-page";
 import { SidebarFrame } from "./frame";
 import { SidebarButton } from "./sidebar-button";
 import { PagesEnum } from "@/enums/pages";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { RoundedLink } from "../general/rounded-link/rounded-link";
 import { handleEmailClick } from "../contact";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { GeneralIcon } from "../general/icon/general-icon";
+import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 export const Sidebar = () => {
   const { selectedPage, handlePageChange } = usePageContext();
+  const [hidden, setHidden] = useState<boolean>(false);
+
+  const handleHidden = () => {
+    setHidden((prev) => !prev);
+  };
+
+  const OpenSidebarButton = ({className}: {className?: string}) => (
+    <Button onClick={handleHidden} className={cn(" border-white rounded-xl border bg-black hover:bg-black", className)}>
+      <GeneralIcon icon={"material-symbols:view-sidebar-sharp"} color="red" className=" h-5 w-5" />
+    </Button>
+  );
+
+  if (hidden)
+    return (
+      <div className="absolute top-2 left-2 md:relative h-full flex items-start">
+        <OpenSidebarButton className=" opacity-60 hover:opacity-100" />
+      </div>
+    );
+
   return (
-    <SidebarFrame className=" flex flex-col justify-between">
-      <div className=" w-full">
+    <SidebarFrame className="absolute top-0 left-0 md:relative flex flex-col justify-between bg-black">
+      <div className=" w-full flex flex-col items-start">
+        <OpenSidebarButton />
         <SidebarButton
           text="Projects"
           selected={selectedPage === PagesEnum.PROJECTS}
@@ -28,7 +52,7 @@ export const Sidebar = () => {
         />
       </div>
       <div className=" flex flex-row w-fit justify-around">
-         <RoundedLink
+        <RoundedLink
           icon="ic:baseline-email"
           className=" cursor-pointer"
           onClick={handleEmailClick}
