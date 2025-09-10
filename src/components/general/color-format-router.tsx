@@ -1,6 +1,8 @@
 export type TextType = "title" | "subTitle" | "text" | "smallText" | "link";
 export type TextColor = "white" | "red";
 
+export type PageColor = "dark" | "light";
+
 export const textFormat: Record<TextType, string> = {
   title: "text-2xl",
   subTitle: "text-lg text-red-500",
