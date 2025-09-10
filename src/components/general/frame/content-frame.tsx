@@ -6,7 +6,7 @@ interface GeneralContentFrameProps {
 }
 export const GeneralContentFrame = ({ className, children}: GeneralContentFrameProps) => {
   return (
-    <div className={cn("rounded-2xl border-2 border-white p-5 flex w-full h-full overflow-auto custom-scrollbar", className)}>
+    <div className={cn("rounded-2xl border-2 border-white p-5 flex flex-col w-full h-full overflow-auto custom-scrollbar", className)}>
       {children}
     </div>
   )
