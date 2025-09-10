@@ -37,7 +37,7 @@ export const AlbumCard = ({ track }: AlbumCardProps) => {
       )}
       <div className=" h-full w-full flex flex-col">
         <TextLine type="title" text={track.strTrack} />
-        <TextLine type="subTitle" color="red" text={track.strAlbum} />
+        <TextLine type="subTitle" color="secondary" text={track.strAlbum} />
         <TextLine type="subTitle" text={track.strArtist} />
         <TextLine
         className="max-h-44"

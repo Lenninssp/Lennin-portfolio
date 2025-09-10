@@ -8,26 +8,34 @@ import { handleEmailClick } from "../contact";
 import { GeneralIcon } from "../general/icon/general-icon";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import { buttonColor, PageColor, TextColor } from "../general/color-format-router";
+import { usePageColor } from "@/contexts/selected-color";
 
 export const Sidebar = () => {
   const { selectedPage, handlePageChange } = usePageContext();
+  const { selectedColor } = usePageColor();
   const [hidden, setHidden] = useState<boolean>(false);
 
   const handleHidden = () => {
     setHidden((prev) => !prev);
   };
 
+  const sidebarColors: Record<PageColor, string> = {
+    light: "hover:border-zinc-900 bg-white hover:bg-white",
+    dark:"hover:border-white bg-zinc-900 hover:bg-zinc-900",
+  };
+
   const OpenSidebarButton = ({ className }: { className?: string }) => (
     <Button
       onClick={handleHidden}
       className={cn(
-        " border-transparent hover:border-white rounded-xl border bg-black hover:bg-black opacity-60 hover:opacity-100 p-1 px-3",
+        " border-transparent rounded-xl border opacity-60 hover:opacity-100 p-1 px-3", sidebarColors[selectedColor],
         className
       )}
     >
       <GeneralIcon
         icon={"material-symbols:view-sidebar-sharp"}
-        color="red"
+        color="secondary"
         className=" h-5 w-5"
       />
     </Button>
@@ -36,14 +44,14 @@ export const Sidebar = () => {
   if (hidden)
     return (
       <div className="absolute top-2 left-2 md:relative h-full flex items-start">
-        <OpenSidebarButton/>
+        <OpenSidebarButton />
       </div>
     );
 
   return (
-    <SidebarFrame className="absolute top-0 left-0 md:relative flex flex-col justify-between bg-black">
+    <SidebarFrame className={cn("absolute top-0 left-0 md:relative flex flex-col justify-between", buttonColor[selectedColor]["primary"])}>
       <div className=" w-full flex flex-col items-start">
-        <OpenSidebarButton/>
+        <OpenSidebarButton />
         <SidebarButton
           text="Projects"
           selected={selectedPage === PagesEnum.PROJECTS}

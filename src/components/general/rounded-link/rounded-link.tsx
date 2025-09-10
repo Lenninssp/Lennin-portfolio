@@ -48,15 +48,6 @@ const textSize: Record<LinkSize, string> = {
   xl: "text-xl",
 };
 
-const variantStyles: Record<
-  NonNullable<RoundedLinkInterface["variant"]>,
-  string
-> = {
-  ghost: "bg-transparent hover:bg-white/10 text-white border-transparent",
-  solid: "bg-white text-black hover:bg-white/90",
-  outline:
-    "bg-transparent text-white border border-white/30 hover:border-white/60 hover:bg-white/10",
-};
 
 export const RoundedLink = ({
   icon,
@@ -67,7 +58,6 @@ export const RoundedLink = ({
   className,
   children,
   ariaLabel,
-  variant = "ghost",
 }: RoundedLinkInterface) => {
   const iconOnly = !text && !children;
 
@@ -80,7 +70,6 @@ export const RoundedLink = ({
         className={cn(
           base,
           onClick && "hover:opacity-80 cursor-pointer transition-opacity",
-          variantStyles[variant],
           iconOnly ? circleSize[size] : cn("w-fit", pillPadding[size], "gap-2"),
           className,
         )}

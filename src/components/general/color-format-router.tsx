@@ -1,5 +1,5 @@
 export type TextType = "title" | "subTitle" | "text" | "smallText" | "link";
-export type TextColor = "white" | "red";
+export type TextColor = "primary" | "secondary";
 
 export type PageColor = "dark" | "light";
 
@@ -11,13 +11,40 @@ export const textFormat: Record<TextType, string> = {
   link: "italic",
 };
 
-export const textColor: Record<TextColor, string> = {
-  white: "text-white",
-  red: "text-red-500",
+export const textColor: Record<PageColor, Record<TextColor, string>> = {
+  light: {
+    primary: "text-zinc-900",
+    secondary: "text-red-600",
+  },
+  dark: {
+    primary: "text-zinc-100",
+    secondary: "text-red-400",
+  },
 };
 
+export const buttonColor: Record<PageColor, Record<TextColor, string>> = {
+  light: {
+    primary: "bg-white text-zinc-400",
+    secondary: "bg-red-600 text-white",
+  },
+  dark: {
+    primary: "bg-zinc-900 text-white",
+    secondary: "bg-red-500 text-zinc-100",
+  },
+};
 
-export const buttonColor: Record<TextColor, string> = {
-  white: "bg-white",
-  red: "bg-red-500",
+export const borderColor: Record<PageColor, Record<TextColor, string>> = {
+  light: {
+    primary: "border-zinc-400",
+    secondary: "border-red-600 ",
+  },
+  dark: {
+    primary: "border-white ",
+    secondary: "border-red-500 ",
+  },
+};
+
+export const backgroundColor: Record<PageColor, string> = {
+  light: "bg-white text-zinc-400",
+  dark: "bg-zinc-900 text-white",
 };

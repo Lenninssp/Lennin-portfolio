@@ -3,6 +3,7 @@ import { buttonColor, TextColor } from "../color-format-router";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { GeneralIcon } from "../icon/general-icon";
+import { usePageColor } from "@/contexts/selected-color";
 
 interface GeneralButtonProps {
   text: string;
@@ -16,11 +17,12 @@ export const GeneralButton = ({
   text,
   onClick,
   icon,
-  color = "white",
+  color = "primary",
   className,
 }: GeneralButtonProps) => {
+  const { selectedColor } = usePageColor()
   return (
-    <Button className={cn("flex gap-4", buttonColor[color], className)} onClick={onClick}>
+    <Button className={cn("flex gap-4", buttonColor[selectedColor][color], className)} onClick={onClick}>
       {icon && <GeneralIcon icon={icon} className="h-4 w-4" color={color} />}
       <span>{text}</span>
     </Button>

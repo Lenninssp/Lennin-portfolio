@@ -21,7 +21,7 @@ export const AboutMe = () => {
         <TextLine
           text="Full-Stack Developer • Product Builder • Entrepreneur"
           type="subTitle"
-          color="red"
+          color="secondary"
         />
       </div>
 
@@ -45,7 +45,7 @@ export const AboutMe = () => {
         <TextLine
           text="React.js/Next.js • Python • Javascript/typescript • Node.js/Deno • AWS • Docker"
           type="smallText"
-          color="red"
+          color="secondary"
         />
       </div>
 

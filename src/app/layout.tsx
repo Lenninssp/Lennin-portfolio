@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("bg-black text-white font-ltmono")}>
+      <body>
         <main>
           <PageColorProvider>
             <PageProvider>
