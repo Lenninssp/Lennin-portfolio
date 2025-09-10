@@ -8,12 +8,12 @@ interface ProjectCardInterface {
 }
 export const ProjectCard = ({ project }: ProjectCardInterface) => {
   return (
-    <div className=" flex w-full h-fit border-2 border-white rounded-2xl p-3 gap-3">
+    <div className=" flex flex-col sm:flex-row w-full h-fit border-2 border-white rounded-2xl p-3 gap-3">
       {project.imageUrl && (
         <GeneralImage
           src={project.imageUrl}
           alt={project.title}
-          size={{ width: 200, height: 200 }}
+          size={{ width: 150, height: 150 }}
         />
       )}
       <div className=" flex flex-col h-full">

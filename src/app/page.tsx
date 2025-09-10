@@ -8,7 +8,7 @@ import { ContentRouter } from "@/components/content";
 const Home = () => {
 
   return (
-    <div className=" w-full flex flex-row gap-4">
+    <div className=" w-full flex flex-row gap-4 relative">
       <Sidebar />
       <ContentRouter />
     </div>

@@ -40,6 +40,15 @@ export const AboutMe = () => {
         />
       </div>
 
+      <div className="flex flex-col gap-2">
+        <TextLine text="Skills:" type="subTitle" />
+        <TextLine
+          text="React.js/Next.js • Python • Javascript/typescript • Node.js/Deno • AWS • Docker"
+          type="smallText"
+          color="red"
+        />
+      </div>
+
       <div className="flex gap-4 mt-4">
         <RoundedLink
           link="https://github.com/Lenninssp"

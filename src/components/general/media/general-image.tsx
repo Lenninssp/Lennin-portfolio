@@ -32,7 +32,7 @@ export const GeneralImage = ({
         rounded,
         className
       )}
-      style={{ lineHeight: 0 }} 
+      style={{ lineHeight: 0, minHeight: size?.height, minWidth: size?.width }} 
     >
       <Image
         src={src}

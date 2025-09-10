@@ -20,7 +20,7 @@ export default function RootLayout({
             <div className="h-screen w-screen">
               <div className="flex flex-col justify-center items-center w-full h-full">
                 <TextLine
-                  className=" absolute top-3 left-3"
+                  className=" hidden md:inline-block absolute top-3 left-3"
                   text="Lennin's Portfolio"
                   type="title"
                   color="red"
