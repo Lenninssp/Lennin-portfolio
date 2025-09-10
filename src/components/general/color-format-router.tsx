@@ -13,3 +13,9 @@ export const textColor: Record<TextColor, string> = {
   white: "text-white",
   red: "text-red-500",
 };
+
+
+export const buttonColor: Record<TextColor, string> = {
+  white: "bg-white",
+  red: "bg-red-500",
+};
