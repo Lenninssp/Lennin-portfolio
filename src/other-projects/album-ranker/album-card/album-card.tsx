@@ -27,12 +27,12 @@ export const AlbumCard = ({ track }: AlbumCardProps) => {
   }, [track.idAlbum]);
 
   return (
-    <GeneralContentFrame className=" min-h-fit flex-row gap-3">
+    <GeneralContentFrame className="gap-3 min-h-[200px] flex-row">
       {imageSong && (
         <GeneralImage
           src={imageSong}
           alt={track.strTrack}
-          size={{ width: 200, height: 200 }}
+          size={{ width: 200, height: 150 }}
         />
       )}
       <div className=" h-full w-full flex flex-col">
