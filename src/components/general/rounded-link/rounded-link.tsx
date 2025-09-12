@@ -3,34 +3,19 @@ import { Icon } from "@iconify/react";
 import { OptionalLink } from "../optional-link";
 import { LinkSize } from "@/types/sizes";
 import React from "react";
+import { usePageColor } from "@/contexts/selected-color";
+import { buttonColor, TextColor } from "../color-format-router";
 
 export interface RoundedLinkInterface {
   icon: string;
   text?: string;
   link?: string;
   size?: LinkSize;
+  color?: TextColor;
   onClick?: () => void;
   className?: string;
   children?: React.ReactNode;
-  ariaLabel?: string;
-  variant?: "ghost" | "solid" | "outline";
 }
-
-const circleSize: Record<LinkSize, string> = {
-  xs: "h-6 w-6",
-  sm: "h-8 w-8",
-  md: "h-10 w-10",
-  lg: "h-12 w-12",
-  xl: "h-14 w-14",
-};
-
-const pillPadding: Record<LinkSize, string> = {
-  xs: "px-2 py-1",
-  sm: "px-2.5 py-1.5",
-  md: "px-3 py-2",
-  lg: "px-3.5 py-2.5",
-  xl: "px-4 py-3",
-};
 
 const iconSize: Record<LinkSize, string> = {
   xs: "h-3 w-3",
@@ -54,26 +39,23 @@ export const RoundedLink = ({
   text,
   link,
   size = "sm",
+  color = "primary",
   onClick,
   className,
   children,
-  ariaLabel,
 }: RoundedLinkInterface) => {
+  const { selectedColor } = usePageColor()
   const iconOnly = !text && !children;
-
-  const base =
-    "inline-flex items-center justify-center rounded-full select-none transition outline-none focus-visible:ring-2 focus-visible:ring-white/50";
 
   return (
     <OptionalLink link={link}>
       <button
         className={cn(
-          base,
+          "inline-flex items-center justify-center rounded-full select-none transition outline-none px-2 py-1 focus-visible:ring-2 focus-visible:ring-white/50",
           onClick && "hover:opacity-80 cursor-pointer transition-opacity",
-          iconOnly ? circleSize[size] : cn("w-fit", pillPadding[size], "gap-2"),
+          buttonColor[selectedColor][color],
           className,
         )}
-        aria-label={iconOnly ? ariaLabel ?? icon : undefined}
         role="link"
         onClick={onClick}
       >

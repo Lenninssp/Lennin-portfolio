@@ -13,7 +13,7 @@ export const textFormat: Record<TextType, string> = {
 
 export const textColor: Record<PageColor, Record<TextColor, string>> = {
   light: {
-    primary: "text-zinc-900",
+    primary: "text-zinc-500",
     secondary: "text-red-600",
   },
   dark: {
@@ -24,18 +24,18 @@ export const textColor: Record<PageColor, Record<TextColor, string>> = {
 
 export const buttonColor: Record<PageColor, Record<TextColor, string>> = {
   light: {
-    primary: "bg-white text-zinc-400",
+    primary: "bg-vintage-200 text-vintage-500",
     secondary: "bg-red-600 text-white",
   },
   dark: {
-    primary: "bg-zinc-900 text-white",
-    secondary: "bg-red-500 text-zinc-100",
+    primary: "bg-zinc-900 hover:bg-zinc-700 text-white",
+    secondary: "bg-red-500 hover:bg-red-600 text-zinc-100",
   },
 };
 
 export const borderColor: Record<PageColor, Record<TextColor, string>> = {
   light: {
-    primary: "border-zinc-400",
+    primary: "border-vintage-400",
     secondary: "border-red-600 ",
   },
   dark: {
@@ -45,6 +45,6 @@ export const borderColor: Record<PageColor, Record<TextColor, string>> = {
 };
 
 export const backgroundColor: Record<PageColor, string> = {
-  light: "bg-white text-zinc-400",
+  light: "bg-vintage-100 text-zinc-400",
   dark: "bg-zinc-900 text-white",
 };

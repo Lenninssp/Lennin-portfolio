@@ -32,7 +32,7 @@ export const BasePage = ({ children }: BasePageProps) => {
 
         <div
           className={cn(
-            "bg-opacity-60 relative w-full h-full md:h-5/6 md:w-10/12 lg:w-2/3 border rounded-2xl flex justify-center overflow-auto",
+            "bg-opacity-60 relative w-full h-full md:h-5/6 md:w-10/12 lg:w-2/3 border-2 rounded-2xl flex justify-center overflow-auto",
             borderColor[selectedColor]["primary"]
           )}
         >
