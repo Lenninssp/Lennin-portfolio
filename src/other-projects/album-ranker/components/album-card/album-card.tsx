@@ -1,5 +1,5 @@
 import { GeneralContentFrame } from "@/components/general/frame/content-frame";
-import { Track } from "../types/album";
+import { Track } from "../../types/album";
 import { TextLine } from "@/components/general/text/text-line";
 import { GeneralImage } from "@/components/general/media/general-image";
 import { useEffect, useState } from "react";

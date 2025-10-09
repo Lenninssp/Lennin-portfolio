@@ -5,7 +5,8 @@ import { TextLine } from "@/components/general/text/text-line";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Album, Track } from "./types/album";
-import { AlbumCard } from "./album-card/album-card";
+import { AlbumCard } from "./components/album-card/album-card";
+
 
 export const AlbumRankerComponent = () => {
   const [request, setRequest] = useState<Track[]>();
@@ -18,6 +19,7 @@ export const AlbumRankerComponent = () => {
     setRequest(data.track);
     return response;
   };
+
   return (
     <div className=" h-full w-full flex flex-col gap-4">
       <div className=" flex w-full justify-between">
