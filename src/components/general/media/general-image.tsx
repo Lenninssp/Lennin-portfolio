@@ -1,10 +1,13 @@
+import { usePageColor } from "@/contexts/selected-color";
 import { cn } from "@/lib/utils";
 import { LinkSize } from "@/types/sizes";
 import Image from "next/image";
+import { borderColor, TextColor } from "../color-format-router";
 
 interface GeneralImageInterface {
   src: string;
   alt: string;
+  color?: TextColor;
   framed?: boolean;
   rounded?: string; 
   priority?: boolean;
@@ -17,6 +20,7 @@ interface GeneralImageInterface {
 export const GeneralImage = ({
   src,
   alt,
+  color = "primary",
   size,
   framed,
   rounded = "rounded-lg",
@@ -24,11 +28,12 @@ export const GeneralImage = ({
   loading = "lazy",
   className,
 }: GeneralImageInterface) => {
+  const { selectedColor } = usePageColor()
   return (
     <div
       className={cn(
         "inline-block overflow-hidden", 
-        framed && "border border-white",
+        framed && "border" && borderColor[selectedColor][color],
         rounded,
         className
       )}

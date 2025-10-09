@@ -5,6 +5,7 @@ import {
   textFormat,
   TextType,
 } from "../color-format-router";
+import { usePageColor } from "@/contexts/selected-color";
 
 export interface TextLineInterface
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -18,14 +19,21 @@ export interface TextLineInterface
 export const TextLine = ({
   text,
   type = "text",
-  color = "white",
+  color = "primary",
   className,
   children,
   ...props
 }: TextLineInterface) => {
+  const { selectedColor } = usePageColor();
+
   return (
     <div
-      className={cn("", textFormat[type], textColor[color], className)}
+      className={cn(
+        "",
+        textFormat[type],
+        textColor[selectedColor][color],
+        className
+      )}
       {...props}
     >
       {text}
