@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from "react"; // <-- 1. Import 'use'
 import { BasePage } from "@/components/general/base/base-page";
 import { borderColor } from "@/components/general/color-format-router";
 import { GeneralImage } from "@/components/general/media/general-image";
@@ -9,13 +10,15 @@ import { getProjectBySlug } from "@/components/posts/projects";
 import { usePageColor } from "@/contexts/selected-color";
 import { cn } from "@/lib/utils";
 
+
 interface ProjectPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>; 
 }
 
 const ProjectPage = ({ params }: ProjectPageProps) => {
   const { selectedColor } = usePageColor();
-  const { id } = params;
+  
+  const { id } = use(params);
 
   const project = getProjectBySlug(id);
 
@@ -34,7 +37,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
         <div
           className={cn(
-            "flex  w-full h-full flex-col items-center text-center border-2 rounded-2xl p-3 gap-3",
+            "flex w-full h-full flex-col items-center text-center border-2 rounded-2xl p-3 gap-3",
             borderColor[selectedColor]["primary"],
           )}
         >
@@ -45,7 +48,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
               size={{ width: 300, height: 300 }}
             />
           )}
-          <div className=" flex flex-col h-full gap-10">
+          <div className="flex flex-col h-full gap-10">
             <TextLine text={project.title} type="title" />
             {project.subtitle && (
               <TextLine
@@ -55,10 +58,10 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
               />
             )}
             <TextLine text={project.description} type="text" />
-            <div className="flex w-full  justify-center items-center">
+            <div className="flex w-full justify-center items-center">
               <RoundedLink
                 link={project.repoUrl}
-                text="Repositorie link"
+                text="Repository link" // (Fixed a small typo here for you!)
                 icon="grommet-icons:github"
               />
               <RoundedLink
