@@ -35,7 +35,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         <div
           className={cn(
             "flex  w-full h-full flex-col items-center text-center border-2 rounded-2xl p-3 gap-3",
-            borderColor[selectedColor]["primary"]
+            borderColor[selectedColor]["primary"],
           )}
         >
           {project.imageUrl && (

@@ -53,14 +53,14 @@ export const Sidebar = () => {
       <div className=" w-full flex flex-col items-start">
         <OpenSidebarButton />
         <SidebarButton
-          text="Projects"
-          selected={selectedPage === PagesEnum.PROJECTS}
-          onClick={() => handlePageChange(PagesEnum.PROJECTS)}
-        />
-        <SidebarButton
           text="About me"
           selected={selectedPage === PagesEnum.ABOUT_ME}
           onClick={() => handlePageChange(PagesEnum.ABOUT_ME)}
+        />
+        <SidebarButton
+          text="Projects"
+          selected={selectedPage === PagesEnum.PROJECTS}
+          onClick={() => handlePageChange(PagesEnum.PROJECTS)}
         />
         <SidebarButton
           text=" Contact me"

@@ -13,11 +13,10 @@ export const Contact = () => {
   return (
     <GeneralContentFrame className=" flex flex-col gap-4">
       <TextLine text="Contact me" type="title" />
-      <div className=" h-full flex flex-col justify-start">
+      <div className=" h-full flex flex-col justify-start w-full gap-3">
         <RoundedLink
           text="lenninssp1021@gmail.com"
           icon="ic:baseline-email"
-          className=" cursor-pointer"
           onClick={handleEmailClick}
         />
 

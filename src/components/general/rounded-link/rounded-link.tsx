@@ -51,7 +51,7 @@ export const RoundedLink = ({
     <OptionalLink link={link}>
       <button
         className={cn(
-          "inline-flex items-center justify-center rounded-full select-none transition outline-none px-2 py-1 focus-visible:ring-2 focus-visible:ring-white/50",
+          "inline-fle max-w-60 flex flex-row gap-2 truncate items-center justify-center rounded-full select-none transition outline-none px-2 py-1 focus-visible:ring-2 focus-visible:ring-white/50",
           onClick && "hover:opacity-80 cursor-pointer transition-opacity",
           buttonColor[selectedColor][color],
           className,

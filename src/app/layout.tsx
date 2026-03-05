@@ -1,24 +1,13 @@
-"use client";
-import { PageProvider } from "@/contexts/selected-page";
-import { Toaster } from "sonner";
-import { PageColorProvider } from "@/contexts/selected-color";
+import "./globals.css";
+import type { ReactNode } from "react";
+import { Providers } from "./providers";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <main>
-          <PageColorProvider>
-            <PageProvider>
-              {children}
-            </PageProvider>
-          </PageColorProvider>
-        </main>
-        <Toaster />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

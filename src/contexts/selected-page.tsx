@@ -7,26 +7,26 @@ interface PageContextType {
 }
 const PageContext = createContext<PageContextType | undefined>(undefined);
 
-export const PageProvider = ({children}: {children: React.ReactNode}) => {
-  const [selectedPage, setSelectedPage] = useState<PagesEnum>(PagesEnum.PROJECTS);
+export const PageProvider = ({ children }: { children: React.ReactNode }) => {
+  const [selectedPage, setSelectedPage] = useState<PagesEnum>(
+    PagesEnum.ABOUT_ME,
+  );
 
   const handlePageChange = (newPage: PagesEnum) => {
     setSelectedPage(newPage);
-  }
+  };
 
-  const value = useMemo(() => ({selectedPage , handlePageChange}),  [selectedPage, handlePageChange]) 
-  return (
-    <PageContext.Provider value={value}>
-      {children}
-    </PageContext.Provider>
-  )
-} 
-
+  const value = useMemo(
+    () => ({ selectedPage, handlePageChange }),
+    [selectedPage, handlePageChange],
+  );
+  return <PageContext.Provider value={value}>{children}</PageContext.Provider>;
+};
 
 export const usePageContext = () => {
   const context = useContext(PageContext);
   if (!context) {
-    throw new Error ("usePageContext must be used within an PageProvider");
+    throw new Error("usePageContext must be used within an PageProvider");
   }
   return context;
-} 
+};

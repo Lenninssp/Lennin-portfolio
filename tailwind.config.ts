@@ -19,18 +19,18 @@ const config = {
     },
     extend: {
       colors: {
-        vintage: {
-          50:  "#fff9f2",
-          100: "#ffedd1",
-          200: "#ffdca3",
-          300: "#ffc86e",
-          400: "#ffb43a",
-          500: "#ff9f07",
-          600: "#db7f02",
-          700: "#b76202",
-          800: "#934a01",
-          900: "#6f3500",
-        },
+      vintage: {
+        50:  "#fff9f1",
+        100: "#ffedd6",
+        200: "#ffd8a8",
+        300: "#ffc173",
+        400: "#ffa33f",
+        500: "#f2871f",
+        600: "#cc6a16",
+        700: "#a75513",
+        800: "#7f410f",
+        900: "#5e2f0b",
+      },
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

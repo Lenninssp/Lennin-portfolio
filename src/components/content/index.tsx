@@ -8,12 +8,13 @@ export const ContentRouter = () => {
   const { selectedPage} = usePageContext()
 
   switch (selectedPage) {
-    case PagesEnum.PROJECTS:
-      return <Projects />
-      break;
 
     case PagesEnum.ABOUT_ME:
       return <AboutMe />
+      break;
+
+    case PagesEnum.PROJECTS:
+      return <Projects />
       break;
 
     case PagesEnum.CONTACT:

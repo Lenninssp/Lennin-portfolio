@@ -16,6 +16,8 @@ export type ProjectTag =
   | "postgresql"
   | "docker"
   | "ai"
+  | "php"
+  | "swift" | "ios" | "mobile" | "java"
 
 export type Project = {
   slug: string;                // unique id used in routes (/projects/[slug])
