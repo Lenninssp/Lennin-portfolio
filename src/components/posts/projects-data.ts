@@ -43,7 +43,7 @@ export const projectsData: ReadonlyArray<Project> = [
   date: "2026-02-10",
   description:
     "Swift iOS application designed to manage books, borrowing, and catalog browsing.",
-  imageUrl: "/images/library.png",
+  imageUrl: "images/library.png",
   tags: ["swift", "ios", "mobile"],
   repoUrl: "https://github.com/Lenninssp/library-system-ios",
 },
@@ -54,7 +54,7 @@ export const projectsData: ReadonlyArray<Project> = [
   date: "2025-12-03",
   description:
     "Static website focused on animal care information with simple HTML/CSS layout.",
-  imageUrl: "/images/animal.png",
+  imageUrl: "images/animal.png",
   tags: [ "frontend"],
   repoUrl: "https://github.com/Lenninssp/Animal-Care",
 },
@@ -65,7 +65,7 @@ export const projectsData: ReadonlyArray<Project> = [
   date: "2025-11-24",
   description:
     "Java-based ticket management system for tracking issues and workflow progress.",
-  imageUrl: "/images/tickets.png",
+  imageUrl: "images/tickets.png",
   tags: ["java", "backend"],
   repoUrl: "https://github.com/Lenninssp/Cannin-Tickets",
 },
@@ -76,7 +76,7 @@ export const projectsData: ReadonlyArray<Project> = [
     date: "2025-09-08",
     description:
       "Portfolio that shows my most relevant projects with a clean design and fast navigation.",
-    imageUrl: "/images/portfolio-lennin.png",
+    imageUrl: "images/portfolio-lennin.png",
     tags: ["react", "frontend", "personal"],
     repoUrl: "https://github.com/Lenninssp/Lennin-portfolio",
     demoUrl: "https://lenninssp.github.io/Lennin-portfolio/",
@@ -86,7 +86,7 @@ export const projectsData: ReadonlyArray<Project> = [
     title: "Text Edit App",
     subtitle: "Lightweight editor running on my VPS",
     date: "2025-07-10",
-    imageUrl: "/images/text-edit.png",
+    imageUrl: "images/text-edit.png",
     description:
       "A simple collaborative text editor deployed on my VPS with Docker, Next.js frontend, Django backend, and PostgreSQL.",
     tags: ["fullstack", "nextjs", "django", "postgresql", "docker"],
@@ -97,7 +97,7 @@ export const projectsData: ReadonlyArray<Project> = [
     title: "Git Progress Sprite Maker",
     subtitle: "Commit daily, unlock a sprite",
     date: "2025-07-28",
-    imageUrl: "/images/git-sprite.png",
+    imageUrl: "images/git-sprite.png",
     description:
       "Web app that rewards daily git commits with progress on ASCII art Pokémon sprites. Uses Prisma and Next.js.",
     tags: ["nextjs", "deno", "docker", "postgresql"],
@@ -105,7 +105,7 @@ export const projectsData: ReadonlyArray<Project> = [
   },
   {
     slug: "album-ranker",
-    imageUrl: "/images/album-ranker.jpg",
+    imageUrl: "images/album-ranker.jpg",
     title: "Album Ranker",
     subtitle: "Rate and rank music albums",
     date: "2025-06-15",
@@ -131,7 +131,7 @@ export const projectsData: ReadonlyArray<Project> = [
     description:
       "A minimalistic to-do manager with Java backend and PostgreSQL, designed for personal productivity.",
     tags: ["postgresql", "fullstack"],
-    imageUrl: "/images/tasky.png",
+    imageUrl: "images/tasky.png",
     repoUrl: "https://github.com/Lenninssp/crocro-noteapp",
   },
 ] as const;
