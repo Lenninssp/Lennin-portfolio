@@ -1,6 +1,4 @@
 "use client";
-
-import { use } from "react"; // <-- 1. Import 'use'
 import { BasePage } from "@/components/general/base/base-page";
 import { borderColor } from "@/components/general/color-format-router";
 import { GeneralImage } from "@/components/general/media/general-image";
@@ -9,18 +7,16 @@ import { TextLine } from "@/components/general/text/text-line";
 import { getProjectBySlug } from "@/components/posts/projects";
 import { usePageColor } from "@/contexts/selected-color";
 import { cn } from "@/lib/utils";
-
+import { use } from "react";
 
 interface ProjectPageProps {
-  params: Promise<{ id: string }>; 
+  params: Promise<{ id: string }>;
 }
 
-const ProjectPage = ({ params }: ProjectPageProps) => {
+export default function ProjectClientPage({ params }: ProjectPageProps) {
+  const resolvedParams = use(params);
   const { selectedColor } = usePageColor();
-  
-  const { id } = use(params);
-
-  const project = getProjectBySlug(id);
+  const project = getProjectBySlug(resolvedParams.id);
 
   if (!project) {
     return (
@@ -33,8 +29,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
   return (
     <BasePage>
       <div className="w-full flex flex-col gap-4 relative">
-        <h1 className="text-3xl font-bold">Project ID: {id}</h1>
-
+        <h1 className="text-3xl font-bold">Project ID: {resolvedParams.id}</h1>
         <div
           className={cn(
             "flex w-full h-full flex-col items-center text-center border-2 rounded-2xl p-3 gap-3",
@@ -61,7 +56,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             <div className="flex w-full justify-center items-center">
               <RoundedLink
                 link={project.repoUrl}
-                text="Repository link" // (Fixed a small typo here for you!)
+                text="Repository link"
                 icon="grommet-icons:github"
               />
               <RoundedLink
@@ -75,6 +70,4 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
       </div>
     </BasePage>
   );
-};
-
-export default ProjectPage;
+}
