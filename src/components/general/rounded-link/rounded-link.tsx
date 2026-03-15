@@ -51,8 +51,11 @@ export const RoundedLink = ({
     <OptionalLink link={link}>
       <button
         className={cn(
-          "inline-fle max-w-60 flex flex-row gap-2 truncate items-center justify-center rounded-full select-none transition outline-none px-2 py-1 focus-visible:ring-2 focus-visible:ring-white/50",
-          onClick && "hover:opacity-80 cursor-pointer transition-opacity",
+          "inline-flex max-w-60 items-center justify-center gap-2 truncate rounded-full px-3 py-2 text-sm font-medium select-none outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-white/50",
+          iconOnly
+            ? "h-11 w-11 hover:-translate-y-0.5 hover:scale-105"
+            : "hover:-translate-y-0.5 hover:scale-[1.02]",
+          onClick && "cursor-pointer",
           buttonColor[selectedColor][color],
           className,
         )}
@@ -61,7 +64,7 @@ export const RoundedLink = ({
       >
         <Icon className={cn(iconSize[size], "shrink-0")} icon={icon} />
         {text && (
-          <span className={cn("font-medium", textSize[size])}>{text}</span>
+          <span className={cn("font-medium tracking-wide", textSize[size])}>{text}</span>
         )}
         {children}
       </button>

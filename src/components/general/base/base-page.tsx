@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { TextLine } from "../text/text-line";
 import { GeneralSwitch } from "../button/general-switch";
-import { useState } from "react";
 import { usePageColor } from "@/contexts/selected-color";
 import { backgroundColor, borderColor } from "../color-format-router";
 
@@ -10,33 +9,46 @@ interface BasePageProps {
 }
 
 export const BasePage = ({ children }: BasePageProps) => {
-  const [activated, setActivated] = useState<boolean>(false);
   const { selectedColor, toggle } = usePageColor();
   return (
-    <div className={cn("h-screen w-screen font-ltmono", backgroundColor[selectedColor])}>
-      <div className="flex flex-col justify-center items-center w-full h-full">
+    <div className={cn("relative min-h-screen w-full overflow-hidden font-ltmono", backgroundColor[selectedColor])}>
+      <div className="pointer-events-none absolute inset-0 grain-overlay opacity-80" />
+      <div
+        className={cn(
+          "pointer-events-none absolute -left-24 top-10 h-56 w-56 rounded-full blur-3xl animate-drift",
+          selectedColor === "light" ? "bg-vintage-200/50" : "bg-orange-300/10"
+        )}
+      />
+      <div
+        className={cn(
+          "pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full blur-3xl animate-drift",
+          selectedColor === "light" ? "bg-red-200/30" : "bg-red-500/10"
+        )}
+      />
+      <div className="relative flex min-h-screen w-full items-center justify-center px-4 py-20 md:px-8">
         <TextLine
-          className=" hidden md:inline-block absolute top-3 left-3"
+          className="hidden md:inline-block absolute left-8 top-6 z-10 text-xs uppercase tracking-[0.35em]"
           text="Lennin's Portfolio"
-          type="title"
+          type="subTitle"
           color="secondary"
         />
 
         <GeneralSwitch
           activated={selectedColor === "light"}
           onToggle={toggle}
-          className="absolute top-3 right-3"
+          className="absolute right-6 top-6 z-10"
           icon1="material-symbols:clear-day-rounded"
           icon2="material-symbols:mode-night"
         />
 
         <div
           className={cn(
-            "bg-opacity-60 relative w-full h-full md:h-5/6 md:w-10/12 lg:w-2/3 border-2 rounded-2xl flex justify-center overflow-auto",
+            "glass-panel relative flex min-h-[78vh] w-full max-w-7xl justify-center overflow-hidden rounded-[2rem] border shadow-[0_24px_80px_rgba(15,23,42,0.10)]",
+            selectedColor === "light" ? "bg-white/70" : "bg-zinc-950/55",
             borderColor[selectedColor]["primary"]
           )}
         >
-          <div className="h-full w-full flex p-10">{children}</div>
+          <div className="h-full w-full p-4 md:p-6 lg:p-8">{children}</div>
         </div>
       </div>
     </div>

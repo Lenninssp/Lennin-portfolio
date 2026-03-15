@@ -80,10 +80,31 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        "wiggle-soft": {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(-1.5deg)" },
+          "75%": { transform: "rotate(1.5deg)" },
+        },
+        "pop-in": {
+          "0%": { opacity: "0", transform: "scale(0.96) translateY(12px)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
+        drift: {
+          "0%, 100%": { transform: "translate3d(0, 0, 0) scale(1)" },
+          "50%": { transform: "translate3d(10px, -12px, 0) scale(1.03)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 6s ease-in-out infinite",
+        "wiggle-soft": "wiggle-soft 0.45s ease-in-out",
+        "pop-in": "pop-in 0.5s ease-out forwards",
+        drift: "drift 12s ease-in-out infinite",
       },
       fontFamily: {
         ltmono: ['"LT Terminal Mono"', "monospace"],

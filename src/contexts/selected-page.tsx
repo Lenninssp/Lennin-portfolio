@@ -1,5 +1,5 @@
 import { PagesEnum } from "@/enums/pages";
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useMemo, useState } from "react";
 
 interface PageContextType {
   selectedPage: PagesEnum;
@@ -12,9 +12,9 @@ export const PageProvider = ({ children }: { children: React.ReactNode }) => {
     PagesEnum.ABOUT_ME,
   );
 
-  const handlePageChange = (newPage: PagesEnum) => {
+  const handlePageChange = useCallback((newPage: PagesEnum) => {
     setSelectedPage(newPage);
-  };
+  }, []);
 
   const value = useMemo(
     () => ({ selectedPage, handlePageChange }),

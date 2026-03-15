@@ -55,6 +55,30 @@
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+body::selection {
+  background: rgba(242, 135, 31, 0.24);
+}
+
+.glass-panel {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.grain-overlay {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 28%),
+    radial-gradient(circle at 80% 0%, rgba(242, 135, 31, 0.18), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(220, 38, 38, 0.12), transparent 26%);
+}
+
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;          

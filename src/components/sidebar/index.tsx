@@ -8,7 +8,7 @@ import { handleEmailClick } from "../contact";
 import { GeneralIcon } from "../general/icon/general-icon";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { buttonColor, PageColor, TextColor } from "../general/color-format-router";
+import { buttonColor, PageColor } from "../general/color-format-router";
 import { usePageColor } from "@/contexts/selected-color";
 
 export const Sidebar = () => {
@@ -21,15 +21,15 @@ export const Sidebar = () => {
   };
 
   const sidebarColors: Record<PageColor, string> = {
-    light: "hover:border-zinc-900 bg-white hover:bg-white",
-    dark:"hover:border-white bg-zinc-900 hover:bg-zinc-900",
+    light: "border-vintage-300/70 bg-white/80 text-zinc-700 hover:bg-white",
+    dark: "border-white/10 bg-white/5 text-white hover:bg-white/10",
   };
 
   const OpenSidebarButton = ({ className }: { className?: string }) => (
     <Button
       onClick={handleHidden}
       className={cn(
-        " border-transparent rounded-xl border opacity-60 hover:opacity-100 p-1 px-3", sidebarColors[selectedColor],
+        "glass-panel h-11 rounded-2xl border px-3 shadow-[0_12px_24px_rgba(15,23,42,0.10)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-105", sidebarColors[selectedColor],
         className
       )}
     >
@@ -43,15 +43,23 @@ export const Sidebar = () => {
 
   if (hidden)
     return (
-      <div className="absolute top-2 left-2 md:relative h-full flex items-start">
+      <div className="absolute left-2 top-2 z-20 flex h-full items-start md:relative">
         <OpenSidebarButton />
       </div>
     );
 
   return (
-    <SidebarFrame className={cn("absolute top-0 left-0 md:relative flex flex-col justify-between", buttonColor[selectedColor]["primary"])}>
-      <div className=" w-full flex flex-col items-start">
+    <SidebarFrame className={cn("absolute left-0 top-0 z-10 flex w-[18rem] flex-col justify-between gap-6 md:relative md:w-72", buttonColor[selectedColor]["primary"])}>
+      <div className="flex w-full flex-col items-start gap-3">
         <OpenSidebarButton />
+        <div className="px-2 pt-2">
+          <p className="text-xs uppercase tracking-[0.28em] text-red-500 dark:text-orange-300">
+            Explore
+          </p>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+            Developer, builder, and entrepreneur crafting practical products with personality.
+          </p>
+        </div>
         <SidebarButton
           text="About me"
           selected={selectedPage === PagesEnum.ABOUT_ME}
@@ -63,15 +71,15 @@ export const Sidebar = () => {
           onClick={() => handlePageChange(PagesEnum.PROJECTS)}
         />
         <SidebarButton
-          text=" Contact me"
+          text="Contact me"
           selected={selectedPage === PagesEnum.CONTACT}
           onClick={() => handlePageChange(PagesEnum.CONTACT)}
         />
       </div>
-      <div className=" flex flex-row w-fit justify-around">
+      <div className="flex w-full items-center gap-3 pt-3">
         <RoundedLink
           icon="ic:baseline-email"
-          className=" cursor-pointer"
+          className="animate-float"
           onClick={handleEmailClick}
         />
 

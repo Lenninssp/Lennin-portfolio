@@ -29,7 +29,7 @@ export const TextLine = ({
   return (
     <div
       className={cn(
-        "",
+        "text-balance",
         textFormat[type],
         textColor[selectedColor][color],
         className

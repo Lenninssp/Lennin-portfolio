@@ -16,7 +16,8 @@ export const GeneralContentFrame = ({
   return (
     <div
       className={cn(
-        "rounded-2xl border-2  p-5 flex flex-col w-full h-full overflow-auto custom-scrollbar",
+        "glass-panel flex h-full w-full animate-pop-in flex-col overflow-auto rounded-[1.75rem] border bg-white/45 p-5 shadow-[0_18px_60px_rgba(15,23,42,0.08)] custom-scrollbar md:p-7",
+        selectedColor === "dark" && "bg-white/[0.03] shadow-[0_20px_65px_rgba(0,0,0,0.3)]",
         borderColor[selectedColor][color],
         className
       )}

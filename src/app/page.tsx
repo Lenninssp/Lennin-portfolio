@@ -7,7 +7,7 @@ import { BasePage } from "@/components/general/base/base-page";
 const Home = () => {
   return (
     <BasePage>
-      <div className=" w-full flex flex-row gap-4 relative">
+      <div className="relative flex h-full w-full flex-col gap-4 md:flex-row">
         <Sidebar />
         <ContentRouter />
       </div>
